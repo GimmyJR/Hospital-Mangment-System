@@ -4,6 +4,7 @@ using Hospital_Mangment_System.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hospital_Mangment_System.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250505004206_AddMedicalImage")]
+    partial class AddMedicalImage
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -174,7 +177,7 @@ namespace Hospital_Mangment_System.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("DoctorName")
+                    b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -182,12 +185,8 @@ namespace Hospital_Mangment_System.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PatientId1")
+                    b.Property<int>("PatientId1")
                         .HasColumnType("int");
-
-                    b.Property<string>("PatientName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -195,10 +194,6 @@ namespace Hospital_Mangment_System.Migrations
 
                     b.Property<DateTime>("SubmissionDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Symptoms")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -479,9 +474,13 @@ namespace Hospital_Mangment_System.Migrations
 
             modelBuilder.Entity("Hospital_Mangment_System.Models.ConsultationForm", b =>
                 {
-                    b.HasOne("Hospital_Mangment_System.Models.Patient", null)
+                    b.HasOne("Hospital_Mangment_System.Models.Patient", "Patient")
                         .WithMany("ConsultationForms")
-                        .HasForeignKey("PatientId1");
+                        .HasForeignKey("PatientId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Patient");
                 });
 
             modelBuilder.Entity("Hospital_Mangment_System.Models.Doctor", b =>

@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\wwwroot\\uploads\\99728571-4535-44d4-9a7f-2b515cd7ebd7_download (2).jfif",
+      "PackagePath": "staticwebassets\\uploads\\99728571-4535-44d4-9a7f-2b515cd7ebd7_download (2).jfif"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Hospital Mangment System.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Hospital Mangment System.props",
+      "PackagePath": "build\\Hospital Mangment System.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Hospital Mangment System.props",
+      "PackagePath": "buildMultiTargeting\\Hospital Mangment System.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Hospital Mangment System.props",
+      "PackagePath": "buildTransitive\\Hospital Mangment System.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

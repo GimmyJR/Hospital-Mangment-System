@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Any;
+using Microsoft.OpenApi.Models;
 
 namespace Hospital_Mangment_System
 {
@@ -18,15 +20,26 @@ namespace Hospital_Mangment_System
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Hospital Management API", Version = "v1" });
 
+                // Make Swagger show DisplayTime as a string with an example
+                c.MapType<TimeSpan>(() => new OpenApiSchema
+                {
+                    Type = "string",
+                    Example = new OpenApiString("10:00 AM")
+                });
+            });
 
+            builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
             builder.Services.AddIdentity<AppUser, IdentityRole>()
             .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
 
             builder.Services.AddScoped<IGenerateTokenService, GenerateTokenService>();
+            builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
 
             builder.Services.AddCors(options =>
             {
@@ -78,11 +91,15 @@ namespace Hospital_Mangment_System
             app.UseRouting();
             app.UseCors("AllowAll");
             app.UseAuthentication();
+            app.UseStaticFiles();
             app.UseWebSockets();
             app.UseAuthorization();
 
-
             app.MapControllers();
+
+            
+            var uploadsPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+            Directory.CreateDirectory(uploadsPath);
 
             app.Run();
         }

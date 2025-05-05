@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "3gv1FrmLG/btczUELPtiAQMSyUjPFDhMsGlqP8kJAvaJ7LHPiGdBL+tcBZD2/8DOphuWAV7oQI9Mxb1EvdFPFg==",
+  "dgSpecHash": "roKSGKUlvyRoYLUha+XL6QdieUzlx3ntC6f3mrNDqAfg3uRlJyiKDtBWW5CNXrO/7YdXkxe7Z/xo+HrdV11cng==",
   "success": true,
   "projectFilePath": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\Hospital Mangment System.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ELSERAG\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
     "C:\\Users\\ELSERAG\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\ELSERAG\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
     "C:\\Users\\ELSERAG\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
