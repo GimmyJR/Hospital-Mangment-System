@@ -4,6 +4,7 @@ D:\Backend Material\Projects\dot net projects\Hospital Mangment System\obj\Relea
 D:\Backend Material\Projects\dot net projects\Hospital Mangment System\obj\Release\net8.0\PubTmp\Out\Hospital Mangment System.dll
 D:\Backend Material\Projects\dot net projects\Hospital Mangment System\obj\Release\net8.0\PubTmp\Out\Hospital Mangment System.runtimeconfig.json
 D:\Backend Material\Projects\dot net projects\Hospital Mangment System\obj\Release\net8.0\PubTmp\Out\Hospital Mangment System.pdb
+D:\Backend Material\Projects\dot net projects\Hospital Mangment System\obj\Release\net8.0\PubTmp\Out\AutoMapper.dll
 D:\Backend Material\Projects\dot net projects\Hospital Mangment System\obj\Release\net8.0\PubTmp\Out\Azure.Core.dll
 D:\Backend Material\Projects\dot net projects\Hospital Mangment System\obj\Release\net8.0\PubTmp\Out\Azure.Identity.dll
 D:\Backend Material\Projects\dot net projects\Hospital Mangment System\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll

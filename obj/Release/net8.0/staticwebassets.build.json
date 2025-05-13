@@ -1,11 +1,39 @@
 {
   "Version": 1,
-  "Hash": "+AJBfFLcJnqtzfT3di0SHilqffx74yq4zLAKqAPdXtA=",
+  "Hash": "ce2K3xrDwQGf7QoaAYSTNn+qaBYwoEfp5u/zKkowLDE=",
   "Source": "Hospital Mangment System",
   "BasePath": "_content/Hospital Mangment System",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "Hospital Mangment System\\wwwroot",
+      "Source": "Hospital Mangment System",
+      "ContentRoot": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\wwwroot\\",
+      "BasePath": "_content/Hospital Mangment System",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\wwwroot\\uploads\\99728571-4535-44d4-9a7f-2b515cd7ebd7_download (2).jfif",
+      "SourceId": "Hospital Mangment System",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\wwwroot\\",
+      "BasePath": "_content/Hospital Mangment System",
+      "RelativePath": "uploads/99728571-4535-44d4-9a7f-2b515cd7ebd7_download (2).jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\99728571-4535-44d4-9a7f-2b515cd7ebd7_download (2).jfif"
+    }
+  ]
 }

@@ -3,6 +3,7 @@ using Hospital_Mangment_System.Models;
 using Hospital_Mangment_System.repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
@@ -19,8 +20,9 @@ namespace Hospital_Mangment_System.Controllers
         private readonly AppDbContext context;
         private readonly IGenerateTokenService generateTokenService;
         private readonly SignInManager<AppUser> signInManager;
+        private readonly IEmailSender emailSender;
 
-        public AuthController(UserManager<AppUser> userManager,RoleManager<IdentityRole> roleManager,IConfiguration configuration,AppDbContext context,IGenerateTokenService generateTokenService,SignInManager<AppUser> signInManager)
+        public AuthController(UserManager<AppUser> userManager,RoleManager<IdentityRole> roleManager,IConfiguration configuration,AppDbContext context,IGenerateTokenService generateTokenService,SignInManager<AppUser> signInManager,IEmailSender emailSender)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
@@ -28,6 +30,7 @@ namespace Hospital_Mangment_System.Controllers
             this.context = context;
             this.generateTokenService = generateTokenService;
             this.signInManager = signInManager;
+            this.emailSender = emailSender;
         }
 
         [HttpPost("register")]
@@ -121,6 +124,81 @@ namespace Hospital_Mangment_System.Controllers
         {
             await signInManager.SignOutAsync();
             return Ok("logout successful");
+        }
+
+        // OTPHandle
+
+        [HttpPost("request-otp")]
+        public async Task<IActionResult> RequestOtp([FromBody] ForgetPasswordRequestDto model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var user = await userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                return BadRequest("User not found.");
+            }
+
+            var otp = new Random().Next(100000, 999999).ToString();
+            user.ResetPasswordOTP = otp;
+            user.ResetPasswordOTPExpiry = DateTime.UtcNow.AddMinutes(5);
+            user.IsResetPasswordOTPUsed = false;
+            await userManager.UpdateAsync(user);
+
+            await emailSender.SendEmailAsync(user.Email, "Password Reset OTP", $"Your OTP for password reset is:  <strong>{otp}</strong>. It is valid for 5 minutes.");
+
+            return Ok("OTP has been sent to your email.");
+
+        }
+
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordOTPDto model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var user = await userManager.FindByEmailAsync(model.Email);
+
+            if (user == null)
+            {
+                return BadRequest("User not found.");
+            }
+
+            if (user.ResetPasswordOTP != model.Otp)
+            {
+                return BadRequest("Invalid OTP.");
+            }
+
+            if (user.ResetPasswordOTPExpiry < DateTime.UtcNow)
+            {
+                return BadRequest("OTP has expired.");
+            }
+
+
+            if (user.IsResetPasswordOTPUsed == true)
+            {
+                return BadRequest("OTP has already been used.");
+            }
+
+            var token = await userManager.GeneratePasswordResetTokenAsync(user);
+            var result = await userManager.ResetPasswordAsync(user, token, model.NewPassword);
+
+            if (!result.Succeeded)
+            {
+                return BadRequest(result.Errors);
+            }
+
+            // Mark the OTP as used
+            user.IsResetPasswordOTPUsed = true;
+            await userManager.UpdateAsync(user);
+
+            return Ok("Password has been reset successfully.");
+
         }
 
     }

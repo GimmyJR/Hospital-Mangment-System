@@ -2,6 +2,7 @@ using Hospital_Mangment_System.Models;
 using Hospital_Mangment_System.repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Any;
@@ -40,6 +41,7 @@ namespace Hospital_Mangment_System
 
             builder.Services.AddScoped<IGenerateTokenService, GenerateTokenService>();
             builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+            builder.Services.AddTransient<IEmailSender, EmailSender>();
 
             builder.Services.AddCors(options =>
             {

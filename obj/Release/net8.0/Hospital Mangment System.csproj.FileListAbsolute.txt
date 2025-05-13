@@ -172,3 +172,6 @@ D:\Backend Material\Projects\dot net projects\Hospital Mangment System\obj\Relea
 D:\Backend Material\Projects\dot net projects\Hospital Mangment System\obj\Release\net8.0\Hospital Mangment System.genruntimeconfig.cache
 D:\Backend Material\Projects\dot net projects\Hospital Mangment System\obj\Release\net8.0\ref\Hospital Mangment System.dll
 D:\Backend Material\Projects\dot net projects\Hospital Mangment System\bin\Release\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Backend Material\Projects\dot net projects\Hospital Mangment System\bin\Release\net8.0\Hospital Mangment System.staticwebassets.runtime.json
+D:\Backend Material\Projects\dot net projects\Hospital Mangment System\bin\Release\net8.0\AutoMapper.dll
+D:\Backend Material\Projects\dot net projects\Hospital Mangment System\obj\Release\net8.0\Hospital Mangment System.sourcelink.json
