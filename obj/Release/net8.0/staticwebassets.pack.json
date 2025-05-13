@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\uploads\\99728571-4535-44d4-9a7f-2b515cd7ebd7_download (2).jfif"
     },
     {
+      "Id": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\wwwroot\\uploads\\questions\\18893edb-2fab-4bb6-9ffe-6a1d1b590990_download (2).jfif",
+      "PackagePath": "staticwebassets\\uploads\\questions\\18893edb-2fab-4bb6-9ffe-6a1d1b590990_download (2).jfif"
+    },
+    {
       "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.Hospital Mangment System.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

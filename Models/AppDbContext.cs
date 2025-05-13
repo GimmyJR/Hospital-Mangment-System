@@ -19,5 +19,6 @@ namespace Hospital_Mangment_System.Models
         public DbSet<ConsultationForm> ConsultationForms { get; set; }
         public DbSet<Admin> admins { get; set; }
         public DbSet<Prescription> prescriptions { get; set; }
+        public DbSet<Question> questions { get; set; }
     }
 }

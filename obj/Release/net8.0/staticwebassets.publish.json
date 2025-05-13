@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uQF1w0I9BEfVdrWavYEc3sli0nA+oj8CpCRz5MH6uXQ=",
+  "Hash": "mnmPC6U7P4jMAchfVw9DpJGwbLGCYYvQ240Vekzs7qE=",
   "Source": "Hospital Mangment System",
   "BasePath": "_content/Hospital Mangment System",
   "Mode": "Default",
@@ -34,6 +34,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\99728571-4535-44d4-9a7f-2b515cd7ebd7_download (2).jfif"
+    },
+    {
+      "Identity": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\wwwroot\\uploads\\questions\\18893edb-2fab-4bb6-9ffe-6a1d1b590990_download (2).jfif",
+      "SourceId": "Hospital Mangment System",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\wwwroot\\",
+      "BasePath": "_content/Hospital Mangment System",
+      "RelativePath": "uploads/questions/18893edb-2fab-4bb6-9ffe-6a1d1b590990_download (2).jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\questions\\18893edb-2fab-4bb6-9ffe-6a1d1b590990_download (2).jfif"
     }
   ]
 }

@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{472A09EC-CC30-41F5-91D1-E8D2E3B6BF2F}|Hospital Mangment System.csproj|d:\\backend material\\projects\\dot net projects\\hospital mangment system\\controllers\\questionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{472A09EC-CC30-41F5-91D1-E8D2E3B6BF2F}|Hospital Mangment System.csproj|solutionrelative:controllers\\questionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{472A09EC-CC30-41F5-91D1-E8D2E3B6BF2F}|Hospital Mangment System.csproj|d:\\backend material\\projects\\dot net projects\\hospital mangment system\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{472A09EC-CC30-41F5-91D1-E8D2E3B6BF2F}|Hospital Mangment System.csproj|solutionrelative:models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{472A09EC-CC30-41F5-91D1-E8D2E3B6BF2F}|Hospital Mangment System.csproj|d:\\backend material\\projects\\dot net projects\\hospital mangment system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{472A09EC-CC30-41F5-91D1-E8D2E3B6BF2F}|Hospital Mangment System.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{472A09EC-CC30-41F5-91D1-E8D2E3B6BF2F}|Hospital Mangment System.csproj|d:\\backend material\\projects\\dot net projects\\hospital mangment system\\dtos\\questiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{472A09EC-CC30-41F5-91D1-E8D2E3B6BF2F}|Hospital Mangment System.csproj|solutionrelative:dtos\\questiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{472A09EC-CC30-41F5-91D1-E8D2E3B6BF2F}|Hospital Mangment System.csproj|d:\\backend material\\projects\\dot net projects\\hospital mangment system\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{472A09EC-CC30-41F5-91D1-E8D2E3B6BF2F}|Hospital Mangment System.csproj|solutionrelative:models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{472A09EC-CC30-41F5-91D1-E8D2E3B6BF2F}|Hospital Mangment System.csproj|d:\\backend material\\projects\\dot net projects\\hospital mangment system\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{472A09EC-CC30-41F5-91D1-E8D2E3B6BF2F}|Hospital Mangment System.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -21,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{472A09EC-CC30-41F5-91D1-E8D2E3B6BF2F}|Hospital Mangment System.csproj|d:\\backend material\\projects\\dot net projects\\hospital mangment system\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{472A09EC-CC30-41F5-91D1-E8D2E3B6BF2F}|Hospital Mangment System.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{472A09EC-CC30-41F5-91D1-E8D2E3B6BF2F}|Hospital Mangment System.csproj|d:\\backend material\\projects\\dot net projects\\hospital mangment system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{472A09EC-CC30-41F5-91D1-E8D2E3B6BF2F}|Hospital Mangment System.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,20 +70,72 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\Models\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Models\\AppDbContext.cs",
+              "ToolTip": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\Models\\AppDbContext.cs",
+              "RelativeToolTip": "Models\\AppDbContext.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAA1wBUAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T03:05:43.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "QuestionsController.cs",
+              "DocumentMoniker": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\Controllers\\QuestionsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\QuestionsController.cs",
+              "ToolTip": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\Controllers\\QuestionsController.cs",
+              "RelativeToolTip": "Controllers\\QuestionsController.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAIwF8AAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T03:04:47.302Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "QuestionDto.cs",
+              "DocumentMoniker": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\Dtos\\QuestionDto.cs",
+              "RelativeDocumentMoniker": "Dtos\\QuestionDto.cs",
+              "ToolTip": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\Dtos\\QuestionDto.cs",
+              "RelativeToolTip": "Dtos\\QuestionDto.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAAAAYAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T03:03:56.49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Question.cs",
+              "DocumentMoniker": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\Models\\Question.cs",
+              "RelativeDocumentMoniker": "Models\\Question.cs",
+              "ToolTip": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\Models\\Question.cs",
+              "RelativeToolTip": "Models\\Question.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAwBEAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T03:03:29.065Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAAAAACwAAAAAAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-13T01:29:36.789Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
@@ -75,12 +143,11 @@
               "RelativeToolTip": "Controllers\\AuthController.cs",
               "ViewState": "AQIAAF4AAAAAAAAAAAAiwIMAAABeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T01:29:04.292Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T01:29:04.292Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "ForgetPasswordRequestDto.cs",
               "DocumentMoniker": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\Dtos\\ForgetPasswordRequestDto.cs",
               "RelativeDocumentMoniker": "Dtos\\ForgetPasswordRequestDto.cs",
@@ -88,12 +155,11 @@
               "RelativeToolTip": "Dtos\\ForgetPasswordRequestDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T01:27:30.921Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T01:27:30.921Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "AppUser.cs",
               "DocumentMoniker": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\Models\\AppUser.cs",
               "RelativeDocumentMoniker": "Models\\AppUser.cs",
@@ -101,12 +167,11 @@
               "RelativeToolTip": "Models\\AppUser.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T01:23:53.746Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T01:23:53.746Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "EmailSender.cs",
               "DocumentMoniker": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\repository\\EmailSender.cs",
               "RelativeDocumentMoniker": "repository\\EmailSender.cs",
@@ -114,21 +179,19 @@
               "RelativeToolTip": "repository\\EmailSender.cs",
               "ViewState": "AQIAABUAAAAAAAAAAAAYwCgAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T01:17:33.543Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T01:17:33.543Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "D:\\Backend Material\\Projects\\dot net projects\\Hospital Mangment System\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABkAAAADAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABYAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-13T01:16:36.715Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T01:16:36.715Z"
             }
           ]
         }
