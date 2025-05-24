@@ -42,6 +42,7 @@ namespace Hospital_Mangment_System
             builder.Services.AddScoped<IGenerateTokenService, GenerateTokenService>();
             builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
             builder.Services.AddTransient<IEmailSender, EmailSender>();
+            builder.Services.AddScoped<ITokenBlacklistService, TokenBlacklistService>();
 
             builder.Services.AddCors(options =>
             {

@@ -1,5 +1,6 @@
 ﻿using Hospital_Mangment_System.Dtos;
 using Hospital_Mangment_System.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
@@ -115,6 +116,95 @@ namespace Hospital_Mangment_System.Controllers
             }
 
             return Ok(question);
+        }
+
+        [HttpPost("SubmitMedicationQuestion")]
+        public async Task<IActionResult> SubmitMedicationQuestion([FromForm] MedicationQuestionDto dto)
+        {
+            try
+            {
+                
+                var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+                var handler = new JwtSecurityTokenHandler();
+                var jwtToken = handler.ReadToken(token) as JwtSecurityToken;
+
+                if (jwtToken == null)
+                    return Unauthorized();
+
+                var userId = jwtToken.Claims.First(claim => claim.Type == ClaimTypes.NameIdentifier).Value;
+                var user = _context.Users.FirstOrDefault(u => u.Email == userId);
+
+                if (user == null)
+                {
+                    return Unauthorized();
+                }
+
+                
+                var medicationQuestion = new MedicationQuestion
+                {
+                    PatientId = userId,
+                    PatientName = user.FullName,
+                    MedicationType = dto.Medication,
+                    QuestionText = dto.Question,
+                    AskedAt = DateTime.UtcNow,
+                    Status = "Pending" 
+                };
+
+                _context.MedicationQuestions.Add(medicationQuestion);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { message = "تم إرسال سؤالك بنجاح، سيتم الرد عليك قريباً" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "حدث خطأ أثناء معالجة طلبك" });
+            }
+        }
+
+        [HttpGet("GetMyMedicationQuestions")]
+        public IActionResult GetMyMedicationQuestions()
+        {
+            var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+            var handler = new JwtSecurityTokenHandler();
+            var jwtToken = handler.ReadToken(token) as JwtSecurityToken;
+
+            if (jwtToken == null)
+                return Unauthorized();
+
+            var userId = jwtToken.Claims.First(claim => claim.Type == ClaimTypes.NameIdentifier).Value;
+
+            var questions = _context.MedicationQuestions
+                .Where(q => q.PatientId == userId)
+                .OrderByDescending(q => q.AskedAt)
+                .Select(q => new
+                {
+                    q.Id,
+                    q.MedicationType,
+                    q.QuestionText,
+                    q.Status,
+                    AskedAt = q.AskedAt.ToString("yyyy-MM-ddTHH:mm:ss"),
+                    Answer = q.Status == "Answered" ? q.AnswerText : null,
+                    AnsweredAt = q.Status == "Answered" ? q.AnsweredAt.Value.ToString("yyyy-MM-ddTHH:mm:ss") : null
+                })
+                .ToList();
+
+            return Ok(questions);
+        }
+
+        [HttpPost("AnswerMedicationQuestion/{id}")]
+        public async Task<IActionResult> AnswerMedicationQuestion(int id, [FromBody] AnswerDto dto)
+        {
+            var question = await _context.MedicationQuestions.FindAsync(id);
+            if (question == null)
+                return NotFound();
+
+            question.AnswerText = dto.Answer;
+            question.AnsweredAt = DateTime.UtcNow;
+            question.Status = "Answered";
+
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "تم إرسال الرد بنجاح" });
         }
 
     }

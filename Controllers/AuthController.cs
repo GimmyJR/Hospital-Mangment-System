@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace Hospital_Mangment_System.Controllers
 {
@@ -21,8 +22,9 @@ namespace Hospital_Mangment_System.Controllers
         private readonly IGenerateTokenService generateTokenService;
         private readonly SignInManager<AppUser> signInManager;
         private readonly IEmailSender emailSender;
+        private readonly ITokenBlacklistService blacklistService;
 
-        public AuthController(UserManager<AppUser> userManager,RoleManager<IdentityRole> roleManager,IConfiguration configuration,AppDbContext context,IGenerateTokenService generateTokenService,SignInManager<AppUser> signInManager,IEmailSender emailSender)
+        public AuthController(UserManager<AppUser> userManager,RoleManager<IdentityRole> roleManager,IConfiguration configuration,AppDbContext context,IGenerateTokenService generateTokenService,SignInManager<AppUser> signInManager,IEmailSender emailSender,ITokenBlacklistService blacklistService)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
@@ -31,6 +33,7 @@ namespace Hospital_Mangment_System.Controllers
             this.generateTokenService = generateTokenService;
             this.signInManager = signInManager;
             this.emailSender = emailSender;
+            this.blacklistService = blacklistService;
         }
 
         [HttpPost("register")]
@@ -57,7 +60,7 @@ namespace Hospital_Mangment_System.Controllers
 
             await userManager.AddToRoleAsync(user, dto.Role);
 
-            if (dto.Role == "Admin")
+            if (dto.Role == "Admin" || dto.Role == "Admin")
             {
                 var admin = new Admin
                 {
@@ -66,7 +69,7 @@ namespace Hospital_Mangment_System.Controllers
                 };
                 context.admins.Add(admin);
             }
-            else if (dto.Role == "Doctor")
+            else if (dto.Role == "Doctor" || dto.Role == "doctor")
             {
                 var doctor = new Doctor
                 {
@@ -77,7 +80,7 @@ namespace Hospital_Mangment_System.Controllers
                 };
                 context.Doctors.Add(doctor);
             }
-            else if (dto.Role == "Patient")
+            else if (dto.Role == "Patient" || dto.Role == "patient")
             {
                 var patient = new Patient
                 {
@@ -122,8 +125,14 @@ namespace Hospital_Mangment_System.Controllers
         [HttpPost("logout")]
         public async Task<IActionResult> Logout()
         {
-            await signInManager.SignOutAsync();
-            return Ok("logout successful");
+            var rawToken = HttpContext.Request.Headers["Authorization"]
+                .ToString()
+                .Replace("Bearer ", "");
+            var handler = new JwtSecurityTokenHandler();
+            var jwtToken = handler.ReadJwtToken(rawToken);
+
+            await blacklistService.BlacklistToken(rawToken, jwtToken.ValidTo);
+            return Ok("Logged out successfully");
         }
 
         // OTPHandle
