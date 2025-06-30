@@ -21,5 +21,9 @@ namespace Hospital_Mangment_System.Models
         public DbSet<Prescription> prescriptions { get; set; }
         public DbSet<Question> questions { get; set; }
         public DbSet<MedicationQuestion> MedicationQuestions { get; set; }
+        public DbSet<Department> departments { get; set; }
+        public DbSet<Bed> beds { get; set; }
+        public DbSet<Report> reports { get; set; }
+
     }
 }

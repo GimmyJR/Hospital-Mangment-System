@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace Hospital_Mangment_System.Controllers
 {
@@ -209,6 +210,87 @@ namespace Hospital_Mangment_System.Controllers
             return Ok("Password has been reset successfully.");
 
         }
+
+        [HttpPost("AddDoctor")]
+        public async Task<ActionResult> AddDoctor([FromBody] AddDoctorDto doctorDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            // Check if the AppUser exists
+            var appUser = await context.Users.FindAsync(doctorDto.AppUserId);
+            if (appUser == null)
+            {
+                return NotFound("AppUser not found.");
+            }
+
+            // Create and add the doctor
+            var doctor = new Doctor
+            {
+                Email = doctorDto.Email,
+                Specialization = doctorDto.Specialization,
+                Schedule = doctorDto.Schedule,
+                AppUserId = doctorDto.AppUserId
+            };
+
+            context.Doctors.Add(doctor);
+            await context.SaveChangesAsync();
+
+            return Ok("Doctor added successfully.");
+        }
+
+
+        [HttpGet("GetAllDoctors")]
+        public async Task<ActionResult<IEnumerable<DoctorDto>>> GetAllDoctors()
+        {
+            var doctors = await context.Doctors
+                .Include(d => d.appUser)
+                .Select(d => new DoctorDto
+                {
+                    Id = d.Id,
+                    Email = d.Email,
+                    Specialization = d.Specialization,
+                    Schedule = d.Schedule,
+                    FullName = d.appUser.FullName
+                })
+                .ToListAsync();
+
+            return Ok(doctors);
+        }
+
+        // Updated GetProfile method using DTOs
+        [HttpGet("profile")]
+        public async Task<IActionResult> GetProfile()
+        {
+            var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+            var handler = new JwtSecurityTokenHandler();
+            var jwtToken = handler.ReadToken(token) as JwtSecurityToken;
+
+            if (jwtToken == null)
+                return Unauthorized();
+
+            var userId = jwtToken.Claims.First(claim => claim.Type == ClaimTypes.NameIdentifier).Value;
+            var user = context.Users.FirstOrDefault(u => u.UserName == userId);
+
+            if (user == null)
+            {
+                return NotFound("User not found");
+            }
+
+           
+            return Ok(new AdminProfileDto
+            {
+                UserId = userId,
+                Email = user.UserName,
+                FullName = user.FullName,
+                PhoneNumber = user.phone
+            });
+
+        }
+
 
     }
 }

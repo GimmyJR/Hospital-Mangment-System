@@ -184,5 +184,73 @@ namespace Hospital_Mangment_System.Controllers
             return Ok(appointments);
         }
 
+        [HttpGet("upcoming")]
+        public async Task<IActionResult> GetUpcoming() =>
+        Ok(await _context.Appointments.Where(a => a.AppointmentDate >= DateTime.Now).ToListAsync());
+
+        [HttpPost]
+        public async Task<IActionResult> AddAppointment(Appointment appointment)
+        {
+            _context.Appointments.Add(appointment);
+            await _context.SaveChangesAsync();
+            return Ok(appointment);
+        }
+
+        // AppointmentsController.cs
+        [HttpGet("appointments/upcoming")]
+        public async Task<IActionResult> GetUpcomingAppointments()
+        {
+            var appointments = await _context.Appointments
+                .Include(a => a.Doctor)
+                .Include(a => a.PatientName)
+                .Where(a => a.AppointmentDate >= DateTime.Today)
+                .OrderBy(a => a.AppointmentDate)
+                .ThenBy(a => a.AppointmentTime)
+                .Select(a => new
+                {
+                    a.Id,
+                    PatientName = a.PatientName,
+                    DoctorName = a.Doctor.appUser.FullName,
+                    AppointmentDate = a.AppointmentDate.ToString("yyyy-MM-dd"),
+                    AppointmentTime = a.AppointmentTime.ToString(@"hh\:mm"),
+                    a.PhoneNumber,
+                    a.Status
+                })
+                .ToListAsync();
+
+            return Ok(appointments);
+        }
+
+        [HttpPatch("appointments/{id}/status")]
+        public async Task<IActionResult> UpdateAppointmentStatus(int id, [FromBody] UpdateStatusDto dto)
+        {
+            var appointment = await _context.Appointments.FindAsync(id);
+            if (appointment == null)
+                return NotFound();
+
+            appointment.Status = dto.Status;
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        [HttpPost("appointments")]
+        public async Task<IActionResult> CreateAppointment([FromBody] AppointmentCreateDto dto)
+        {
+            var appointment = _mapper.Map<Appointment>(dto);
+
+            // Additional validation
+            var doctorExists = await _context.Doctors.AnyAsync(d => d.Id == dto.DoctorId);
+            if (!doctorExists)
+                return BadRequest("Invalid doctor selected");
+
+            appointment.Status = "Pending";
+            appointment.CreatedAt = DateTime.UtcNow;
+
+            _context.Appointments.Add(appointment);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetAppointment), new { id = appointment.Id }, appointment);
+        }
     }
 }

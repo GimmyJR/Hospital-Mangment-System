@@ -2,6 +2,7 @@
 using Hospital_Mangment_System.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Hospital_Mangment_System.Controllers
 {
@@ -48,6 +49,22 @@ namespace Hospital_Mangment_System.Controllers
             }
 
             return consultation;
+        }
+
+        [HttpGet("GetAllConsultations")]
+        public async Task<ActionResult<IQueryable<ConsultationDto>>> GetAllConsultations()
+        {
+            var consultations = await _context.ConsultationForms
+                .Select(c => new ConsultationDto
+                {
+                    PatientName = c.PatientName,
+                    PatientId = c.PatientId,
+                    Symptoms = c.Symptoms,
+                    DoctorName = c.DoctorName,
+                })
+                .ToListAsync();
+
+            return Ok(consultations);
         }
     }
 }

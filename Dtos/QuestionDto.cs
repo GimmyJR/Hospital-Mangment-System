@@ -10,4 +10,5 @@
         public string? DoctorName { get; set; }
         public DateTime AskedAt { get; set; }
     }
+
 }
